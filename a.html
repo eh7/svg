@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SVG.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/@svgdotjs/svg.js@3.0/dist/svg.min.js"></script>
+</head>
+<body>
+
+<script>
+  var pageWidth = 400;
+  var pageHeight = 500;
+
+  var draw = SVG().addTo('body').size(pageWidth, pageHeight)
+
+  var rect = draw.rect(pageWidth, pageHeight).attr({ fill: '#dddddd' })
+
+  var w = 400;
+  var h = 300;
+
+  draw.polygon(`
+    0,${h-0}
+    ${w},${h-h}
+    ${w},${h-h+15}
+    15,${h-0}
+  `)
+    .move(0, 200)
+
+  draw.polygon(`
+    290,${h-351}
+    290,${h-361}
+    130,${h-361}
+    130,${h-351} 
+  `)
+    .move(131, 139)
+
+  draw.polygon(`
+    140,${h-106} 
+    140,${h-350}
+    280,${h-350}
+    280,${h-211} 
+  `)
+    .move(140, 150)
+    // .clipWith(clip)
+
+  var clip = draw.clip().add(draw.polygon(`
+    0,0 
+    150,0
+    150,5
+    0,5 
+  `)
+    .fill({ color: '#fff' })
+    .move(135, 195))
+
+  draw.circle(20).fill({ color: '#000' })
+    .move(225, 110)
+  draw.circle(45).fill({ color: '#000' })
+    .move(155, 75)
+  draw.circle(50).fill({ color: '#000' })
+    .move(205, 55)
+  draw.circle(35).fill({ color: '#000' })
+    .move(175, 35)
+  draw.circle(25).fill({ color: '#000' })
+    .move(225, 20)
+  draw.circle(25).fill({ color: '#000' })
+    .move(259, 10)
+  draw.circle(25).fill({ color: '#000' })
+    .move(299, 5)
+
+</script>
+</body>
+</html>
